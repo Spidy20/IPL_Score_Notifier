@@ -5,10 +5,10 @@ from plyer import notification
 
 # initial state 0
 init = 0
+dprev = ""
 while True:
     # Open the site
 
-    dprev = ""
     url = "https://www.scorespro.com/rss2/live-cricket.xml"
     r = requests.get(url)
     # FInd the text from site
@@ -31,5 +31,5 @@ while True:
             timeout=15
         )
     init = 1  # change state to 1
-    dprev = d
+    dprev = d[:]
     time.sleep(10)  # check every 10 seconds to save some banddwidth
